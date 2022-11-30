@@ -135,7 +135,7 @@ namespace UIToolkit.Editor.Utilities.FileWriters
             writer.WriteLine("<ui:UXML xmlns:ui=\"UnityEngine.UIElements\" xmlns:uie=\"UnityEditor.UIElements\" editor-extension-mode=\"True\">");
             writer.Indent();
             //Add custom Style Sheet
-            writer.WriteLine("<Style src=\"project://database/Assets/Editor/Prototyping/NewUSSFile.uss?fileID=7433441132597879392&amp;guid=6900da3c74504df48882b65fbc801786&amp;type=3#NewUSSFile\" />");
+            writer.WriteLine("<Style src=\"project://database/Packages/com.miniproject.uitoolkitattributes/Editor/Styles/UXMLStyles.uss\" />");
             //Get type members that are not constructors, ordered by their metadata token
             var memberInfos = type.GetMembers(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
                 .Where(x => (x is ConstructorInfo) == false)
