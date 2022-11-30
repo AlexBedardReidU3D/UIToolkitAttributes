@@ -1,0 +1,15 @@
+{
+  "name": "com.miniproject.uitoolkitattributes",
+  "version": "0.0.1",
+  "displayName": "UIToolkit-attributes",
+  "description": "A collection of attributes that auto generate custom inspectors using UIToolkit & UXML.",
+  "unity": "2021.3",
+  "unityRelease": "12f1",
+  "keywords": [],
+  "author": {
+    "name": "Alex Bedard-Reid",
+    "email": "alex.bedardreid@unity3d.com",
+    "url": ""
+  },
+  "dependencies": {}
+}

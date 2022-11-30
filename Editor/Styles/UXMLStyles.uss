@@ -1,0 +1,126 @@
+/*Box Group Styles*/
+/*======================================================*/
+GroupBox.box-group {
+    border-width: 1px;
+    border-radius: 2px;
+    border-color: rgb(45,45,45);
+    background-color: rgb(65,65,65);
+    margin: 5px;
+    padding: 0;
+}
+GroupBox.box-group > Label.unity-group-box__label{
+    background-color: rgb(85,85,85);
+    margin: 0;
+    padding: 2px;
+    padding-left: 10;
+}
+
+/*Title Group Styles*/
+/*======================================================*/
+GroupBox.title-group > Label.unity-group-box__label{
+    text-shadow: 0.4px 0.5px 1px rgb(45,45,45);
+    font-size: 13px; 
+    -unity-font-style: bold;
+
+    border-bottom-width: 1px; 
+    border-color: rgb(210, 210, 210);
+}
+/*Foldout Group Styles*/
+/*======================================================*/
+Foldout.foldout-group {
+    border-width: 1px;
+    border-radius: 2px;
+    border-color: rgb(45,45,45);
+    background-color: rgb(65,65,65);
+    margin: 5px;
+    padding: 0;
+}
+Foldout.foldout-group > Toggle.unity-foldout__toggle{
+    background-color: rgb(85,85,85);
+    margin: 0;
+    padding: 2px;
+}
+Foldout.foldout-group > #unity-content{
+    padding: 5px;
+}
+
+/*Horizontal Group Styles*/
+/*======================================================*/
+GroupBox.horizontal-group {
+    flex-direction: row; 
+    margin: 4px;
+    padding: 0;
+}
+GroupBox.horizontal-group > *{
+    flex-shrink: 1;
+    flex-grow: 1;
+    margin: 1px;
+}
+GroupBox.horizontal-group .unity-base-field{
+    justify-content: space-between;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin: 2px;
+    /*width: initial;*/
+}
+GroupBox.horizontal-group .unity-base-field__label{
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+}
+GroupBox.horizontal-group .unity-base-field__input{
+    flex-shrink: 0;
+    flex-grow: 1;
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+}
+
+/*Hide Label Styles*/
+/*======================================================*/
+.hide-label > Label.unity-base-field__label{
+    display: none;
+}
+
+/*Hide Label Styles*/
+/*======================================================*/
+.read-only{
+    opacity: 0.5;
+}
+
+/*Info box Styles*/
+/*======================================================*/
+GroupBox.info-box{
+    border-color: rgb(45,45,45); border-width: 1px;
+    border-radius: 2px;
+    background-color: rgb(85, 85, 85); 
+    flex-direction: row; 
+    align-items: center;
+    padding: 3px;
+}
+GroupBox.info-box > VisualElement.*{
+    /*FIXME This might be problematic because of the use of Collaborate*/
+    background-image: url(&apos;project://database/Packages/com.unity.collab-proxy/Editor/Collaborate/Assets/Icons/status-info-dark@2x.png?fileID=2800000&amp;guid=eba49403f5934c74b8114ead5f397592&amp;type=3#status-info-dark@2x&apos;); 
+    width: 24px; 
+    height: 24px;
+    margin: 0;
+    flex-shrink: 0;
+}
+GroupBox.info-box > Label.*{
+    white-space: normal; 
+    flex-shrink: 1; 
+    padding-right: 0; 
+    padding-left: 3px;
+}
+
+/*Display As String Styles*/
+/*======================================================*/
+GroupBox.display-as-string{
+    justify-content: flex-start; 
+    flex-direction: row; 
+    align-items: auto; 
+    margin-top: 1px;
+    padding: 0;
+}
