@@ -8,7 +8,7 @@ This is a Tool that allows the auto generation of UXML & custom inspector script
 * Use link `https://github.com/AlexBedardReidU3D/UIToolkitAttributes.git`
 
 ## Getting Started
-1. Add `[GenerateUXML]` to any Monobehaviour or Value type/ Reference Type
+1. Add `[GenerateUXML]` to any `Monobehaviour` or Value type/ Reference Type
 2. Allow the scripts to recompile, and 2 new auto-generated scripts will have been added to `Assets/Editor/Custom Inspector/TYPE_NAME/`
 
 ## Todo List
@@ -16,11 +16,11 @@ This is a Tool that allows the auto generation of UXML & custom inspector script
 - [ ] Stacked Groups utilizing Dynamic Labels
 - [ ] Enum Flags Support
 - [ ] Scriptable Objects Support
-- [ ] Custom Label for structs utilizing `[BoxGroup]`
+- [ ] Custom Label for `struct` utilizing `[BoxGroup]`
 - [ ] Implement `[HideLabel]` to hide label
 - [ ] Implement `[LeftToggle]`
 - [ ] Implement `[Required]` to show warning when missing reference
-- [ ] Implement Enum Toggle Buttons
+- [ ] Implement `[EnumToggleButtons]`
 - [ ] Implement `[Tooltip]`
 - [ ] Implement `[HideIf]` / `[ShowIf]`
 ---
@@ -28,21 +28,21 @@ This is a Tool that allows the auto generation of UXML & custom inspector script
 - [The Attributes](#the-attributes)
   * [Generic Attributes](#generic-attributes)
     + [`[GenerateUXML]`](#--generateuxml--)
-    + [`[Button]` | `[Button(string)]`](#--button-------button-string---)
+    + [`[Button]`](#--button-------button-string---)
     + [`[CustomLabel(string)]`](#--customlabel-string---)
     + [`[DisplayAsString]`](#--displayasstring--)
     + [`[InfoBox(string)]`](#--infobox-string---)
     + [`[ReadOnly]`](#--readonly--)
   * [Group Attributes](#group-attributes)
     + [Group Path Examples](#group-path-examples)
-    + [`[BoxGroup(string)]` | `[BoxGroup(string, string)]`](#--boxgroup-string--------boxgroup-string--string---)
-    + [`[FoldoutGroup(string)]` | `[FoldoutGroup(string, string)]`](#--foldoutgroup-string--------foldoutgroup-string--string---)
+    + [`[BoxGroup(string)]`](#--boxgroup-string--------boxgroup-string--string---)
+    + [`[FoldoutGroup(string)]`](#--foldoutgroup-string--------foldoutgroup-string--string---)
     + [`[HorizontalLayoutGroup(string)]`](#--horizontallayoutgroup-string---)
-    + [`[TitleGroup(string)]` | `[TitleGroup(string, string)]`](#--titlegroup-string--------titlegroup-string--string---)
+    + [`[TitleGroup(string)]`](#--titlegroup-string--------titlegroup-string--string---)
     + [`[VerticalLayoutGroup(string)]`](#--verticallayoutgroup-string---)
   * [Conditional Attributes](#conditional-attributes)
-    + [`[DisableIf(string)]` | `[DisableIf(string, object)]`](#--disableif-string--------disableif-string--object---)
-    + [`[EnableIf(string)]` | `[EnableIf(string, object)]`](#--enableif-string--------enableif-string--object---)
+    + [`[DisableIf(string)]`](#--disableif-string--------disableif-string--object---)
+    + [`[EnableIf(string)]`](#--enableif-string--------enableif-string--object---)
     + [`[DisableInEditorMode]`](#--disableineditormode--)
     + [`[DisableInPlayMode]`](#--disableinplaymode--)
   * [Attribute Information](#attribute-information)
