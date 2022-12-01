@@ -1,7 +1,7 @@
 # UIToolkit Attributes
 This is a Tool that allows the auto generation of UXML & custom inspector scripts by using attributes
 > **_NOTE:_**  Other versions of Unity need to be tested to expand this list.
-- Unity Version 2021.3.12f1
+- Unity Version [2021.3.12f1](unityhub://2021.3.12f1/8af3c3e441b1)
 
 ## Importing Package
 * Use the `Package Manager -> ➕ -> Add package from git URL...`
