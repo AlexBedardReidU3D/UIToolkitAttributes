@@ -65,6 +65,9 @@ namespace UIToolkit.Editor.Utilities.FileWriters
 
             //Based on: https://stackoverflow.com/a/607204
             var typesWithGenerateUxml = GetAllScriptsWithGenerateUXMLAttribute();
+            
+            if (typesWithGenerateUxml.Length == 0)
+                return;
 
             //Setup dictionaries used to pass information to the Script Generator
             s_ButtonFunctions = new Dictionary<Type, List<MethodInfo>>();
