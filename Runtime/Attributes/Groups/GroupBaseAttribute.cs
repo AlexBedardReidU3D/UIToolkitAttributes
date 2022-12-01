@@ -5,9 +5,6 @@ using System.Linq;
 namespace UIToolkit.Attributes
 {
     //TODO Add HideInInspector
-    //TODO Add EnableIf/DisableIf
-    //TODO Add EnableInEditor/DisableInEditor
-    //TODO Add EnableInPlayMode/DisableInPlaymode
     
     [Conditional("UNITY_EDITOR")]
     public abstract class GroupBaseAttribute : Attribute
