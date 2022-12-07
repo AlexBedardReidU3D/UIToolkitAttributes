@@ -1,6 +1,6 @@
 {
   "name": "com.miniproject.uitoolkitattributes",
-  "version": "0.0.1",
+  "version": "0.0.1-exp",
   "displayName": "UIToolkit-attributes",
   "description": "A collection of attributes that auto generate custom inspectors using UIToolkit & UXML.",
   "unity": "2021.3",
