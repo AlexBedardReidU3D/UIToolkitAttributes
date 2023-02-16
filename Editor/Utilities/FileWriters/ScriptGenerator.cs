@@ -115,9 +115,9 @@ namespace UIToolkit.Editor.Utilities.FileWriters
             TryAddSetEnabledMethod(conditionalDatas, ref writer);
             
             if(needsEventMethod)
-                TryAddKeyUpEventMethod(ref writer);
+                TryAddKeyUpEventMethod(className, ref writer);
             if (needClickEventMethod)
-                TryAddConditionalEventMethod(ref writer);
+                TryAddConditionalEventMethod(className, ref writer);
             
             //----------------------------------------------------------//
 
@@ -222,10 +222,10 @@ namespace UIToolkit.Editor.Utilities.FileWriters
             TryAddSetEnabledMethod(conditionalDatas, ref writer);
 
             if(needsEventMethod)
-                TryAddKeyUpEventMethod(ref writer);
+                TryAddKeyUpEventMethod(className, ref writer);
             
             if (needConditionalEvent)
-                TryAddConditionalEventMethod(ref writer);
+                TryAddConditionalEventMethod(className, ref writer);
 
             //----------------------------------------------------------//
             
@@ -509,16 +509,19 @@ namespace UIToolkit.Editor.Utilities.FileWriters
             
         }
 
-        private static void TryAddKeyUpEventMethod(ref Writer writer)
+        //FIXME URGENT This is not setup to be Generic!!!
+        private static void TryAddKeyUpEventMethod(in string className, ref Writer writer)
         {
+            var variableName = $"{className}Instance";
+            //throw new Exception("URGENT This is not setup to be Generic!!!");
             writer.WriteLine();
             writer.WriteLine("private void OnKeyUpEvent(KeyUpEvent evt)");
             writer.BeginBlock();
-            writer.WriteLine("var MyClassInstance = (MyClass)target;");
+            writer.WriteLine($"var {variableName} = ({className})target;");
             writer.WriteLine();
             writer.WriteLine("foreach (var bindingData in savedBindings)");
             writer.BeginBlock();
-            writer.WriteLine("var newValue = bindingData.MemberInfo.GetValue(MyClassInstance);");
+            writer.WriteLine($"var newValue = bindingData.MemberInfo.GetValue({variableName});");
             writer.WriteLine();
             writer.WriteLine("if (bindingData.RequiresUpdate(newValue) == false)");
             writer.WriteLine("\tcontinue;");
@@ -539,16 +542,18 @@ namespace UIToolkit.Editor.Utilities.FileWriters
             writer.WriteLine();
         }
         
-        private static void TryAddConditionalEventMethod(ref Writer writer)
+        private static void TryAddConditionalEventMethod(in string className, ref Writer writer)
         {
+            var variableName = $"{className}Instance";
+            
             writer.WriteLine();
             writer.WriteLine("private void UpdateConditionalEvent(EventBase _)");
             writer.BeginBlock();
-            writer.WriteLine("var MyClassInstance = (MyClass)target;");
+            writer.WriteLine($"var {variableName} = ({className})target;");
             writer.WriteLine();
             writer.WriteLine("foreach (var bindingData in savedConditionalBindings)");
             writer.BeginBlock();
-            writer.WriteLine("var newValue = bindingData.MemberInfo.GetValue(MyClassInstance);");
+            writer.WriteLine($"var newValue = bindingData.MemberInfo.GetValue({variableName});");
             writer.WriteLine();
             writer.WriteLine("if (bindingData.RequiresUpdate(newValue) == false)");
             writer.WriteLine("\tcontinue;");

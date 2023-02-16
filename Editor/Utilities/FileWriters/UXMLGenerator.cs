@@ -17,6 +17,7 @@ using Object = UnityEngine.Object;
 namespace UIToolkit.Editor.Utilities.FileWriters
 {
     //TODO Take a look here: https://docs.unity3d.com/Manual/roslyn-analyzers.html
+    [Obsolete]
     public static class UXMLGenerator
     {
         private static readonly string PATH = Path.Combine(Application.dataPath, "Editor", "Custom Inspectors");
