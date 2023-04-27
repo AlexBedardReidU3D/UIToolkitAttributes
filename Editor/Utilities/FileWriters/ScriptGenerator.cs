@@ -88,6 +88,7 @@ namespace UIToolkit.Editor.Utilities.FileWriters
             writer.WriteLine("public override VisualElement CreateInspectorGUI()");
             writer.BeginBlock();
             writer.WriteLine($"var {objectInstanceName}= ({type.GetSafeName()})target;");
+            writer.WriteLine($"var classType = {objectInstanceName}.GetType();");
             writer.WriteLine();
             SetupInspector(type, ref writer);
 
@@ -115,7 +116,7 @@ namespace UIToolkit.Editor.Utilities.FileWriters
             TryAddSetEnabledMethod(conditionalDatas, ref writer);
             
             if(needsEventMethod)
-                TryAddKeyUpEventMethod(ref writer);
+                TryAddKeyUpEventMethod(type, ref writer);
             if (needClickEventMethod)
                 TryAddConditionalEventMethod(ref writer);
             
@@ -222,7 +223,7 @@ namespace UIToolkit.Editor.Utilities.FileWriters
             TryAddSetEnabledMethod(conditionalDatas, ref writer);
 
             if(needsEventMethod)
-                TryAddKeyUpEventMethod(ref writer);
+                TryAddKeyUpEventMethod(type, ref writer);
             
             if (needConditionalEvent)
                 TryAddConditionalEventMethod(ref writer);
@@ -280,9 +281,6 @@ namespace UIToolkit.Editor.Utilities.FileWriters
             writer.WriteLine("//----------------------------------------------------------//");
             writer.WriteLine("//Button Attribute Calls");
             writer.WriteLine("//----------------------------------------------------------//");
-                
-            writer.WriteLine();
-            writer.WriteLine($"var classType = {objectInstanceName}.GetType();");
             writer.WriteLine();
                 
             foreach (var methodInfo in buttons)
@@ -509,12 +507,12 @@ namespace UIToolkit.Editor.Utilities.FileWriters
             
         }
 
-        private static void TryAddKeyUpEventMethod(ref Writer writer)
+        private static void TryAddKeyUpEventMethod(Type type, ref Writer writer)
         {
             writer.WriteLine();
             writer.WriteLine("private void OnKeyUpEvent(KeyUpEvent evt)");
             writer.BeginBlock();
-            writer.WriteLine("var MyClassInstance = (MyClass)target;");
+            writer.WriteLine($"var MyClassInstance = ({type.Name})target;");
             writer.WriteLine();
             writer.WriteLine("foreach (var bindingData in savedBindings)");
             writer.BeginBlock();
